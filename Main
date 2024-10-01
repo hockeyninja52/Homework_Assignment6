@@ -1,0 +1,76 @@
+package hw6;
+import java.util.Scanner;
+import java.util.Random;
+import java.io.*;
+import java.util.Arrays;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Random random = new Random();
+		Scanner scan = new Scanner(System.in);
+		
+		int n = 1000; 
+		
+		int[] randomArray = new int[n];
+		
+		for(int i = 0; i < n; i++) {
+			randomArray[i] = random.nextInt(n);
+			}
+		/*
+		for(int j = 0; j < n; j++) {
+			System.out.println(randomArray[j]);
+			}
+		*/
+		B_sort(randomArray);
+		S_sort(randomArray);
+	}
+
+	public static void B_sort(int randomArray[]) {
+		//Bubble Sort
+		int temp = 0;
+		int[] B_Array = new int[randomArray.length];
+		for(int i = 0; i < randomArray.length; i++) {
+			B_Array[i] = randomArray[i];
+			//System.out.println(B_Array[i]);
+		}
+		
+		for(int j = 0; j < B_Array.length; j++) {
+			for(int l = 0; l < B_Array.length - l - 1; l++) {
+				if(B_Array[l] > B_Array[l + 1]) {
+					temp = B_Array[l];
+					B_Array[l] = B_Array[l + 1];
+					B_Array[l + l] = temp;
+				}
+			}
+		}
+		
+	for(int m = 0; m < B_Array.length; m++) {
+		System.out.println(B_Array[m]);
+	}
+}
+	
+	public static void S_sort(int randomArray[]) {
+		//Selection Sort
+		int temp = 0;
+		int[] S_Array = new int[randomArray.length];
+		for(int i = 0; i < randomArray.length; i++) {
+			S_Array[i] = randomArray[i];
+			//System.out.println(S_Array[i]);
+		}
+		
+		for(int j = 0; j < S_Array.length; j++) {
+			for(int m = j + 1; m < S_Array.length; m++) {
+				if(S_Array[m] > S_Array[j]) {
+					temp = S_Array[j];
+					S_Array[j] = S_Array[m];
+					S_Array[j] = temp;
+				}
+			}
+		}
+			
+		for(int n = 0; n < S_Array.length; n++) {
+			System.out.println(S_Array[n]);
+		}		
+	}
+}
