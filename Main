@@ -10,19 +10,35 @@ public class Main {
 		Random random = new Random();
 		Scanner scan = new Scanner(System.in);
 		
-		int n = 1000; 
-		
+		int n = 10; 
+		int x = 0;
+		int p = 0;
+		boolean numfound = false;
 		int[] randomArray = new int[n];
 		
-		for(int i = 0; i < n; i++) {
-			randomArray[i] = random.nextInt(n);
+		while(x < n - 1) {
+			numfound = false;
+			p = random.nextInt(10);
+			for(int i = 0; i < n; i++) {
+				if(randomArray[i] == p) {
+					numfound = true;
+					break;
+				}
+				
 			}
+			if(!numfound) {
+				randomArray[x] = p;
+				x++;
+			}
+		}
+		
 		/*
 		for(int j = 0; j < n; j++) {
 			System.out.println(randomArray[j]);
 			}
 		*/
-		B_sort(randomArray);
+		
+		//B_sort(randomArray);
 		S_sort(randomArray);
 	}
 
@@ -36,11 +52,11 @@ public class Main {
 		}
 		
 		for(int j = 0; j < B_Array.length; j++) {
-			for(int l = 0; l < B_Array.length - l - 1; l++) {
+			for(int l = 0; l < B_Array.length - j - 1; l++) {
 				if(B_Array[l] > B_Array[l + 1]) {
 					temp = B_Array[l];
 					B_Array[l] = B_Array[l + 1];
-					B_Array[l + l] = temp;
+					B_Array[l + 1] = temp;
 				}
 			}
 		}
@@ -64,7 +80,7 @@ public class Main {
 				if(S_Array[m] > S_Array[j]) {
 					temp = S_Array[j];
 					S_Array[j] = S_Array[m];
-					S_Array[j] = temp;
+					S_Array[m] = temp;
 				}
 			}
 		}
