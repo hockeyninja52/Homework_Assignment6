@@ -10,7 +10,7 @@ public class Main {
 		Random random = new Random();
 		Scanner scan = new Scanner(System.in);
 		
-		int n = 10; 
+		int n = 10000; 
 		int x = 0;
 		int p = 0;
 		boolean numfound = false;
@@ -18,7 +18,7 @@ public class Main {
 		
 		while(x < n - 1) {
 			numfound = false;
-			p = random.nextInt(10);
+			p = random.nextInt(100000);
 			for(int i = 0; i < n; i++) {
 				if(randomArray[i] == p) {
 					numfound = true;
@@ -37,9 +37,16 @@ public class Main {
 			System.out.println(randomArray[j]);
 			}
 		*/
+		long startTimeb = System.currentTimeMillis();
+		B_sort(randomArray);
+		long endTimeb = System.currentTimeMillis();
 		
-		//B_sort(randomArray);
+		long startTimes = System.currentTimeMillis();
 		S_sort(randomArray);
+		long endTimes = System.currentTimeMillis();
+		
+		System.out.println("Sorting an array of " + n + " using Bubble Sort took " + (endTimeb - startTimeb) + " miliseconds to complete");
+		System.out.println("Sorting an array of " + n + " using Selection Sort took " + (endTimes - startTimes) + " miliseconds to complete");
 	}
 
 	public static void B_sort(int randomArray[]) {
